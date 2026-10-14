@@ -106,7 +106,6 @@ h1 {
   margin-bottom: 0.7em;
 }
 
-
 .get-in-touch-with-naga {
   border: 2px rgba(0, 0, 255, 0.705) solid;
   border-radius: 2em;
@@ -119,9 +118,6 @@ h1 {
 .get-in-touch-with-naga a {
   color: rgb(7, 96, 220);
 }
-
-
-
 
 .hero-image {
   margin-right: 4em;
@@ -171,27 +167,27 @@ h1 {
   } */
 
 #about {
-.me {
-  color: #ffffff;
-  width: 50%;
-  text-align: center;
-  margin: 0 auto 0 auto;
-  line-height: 3em;
-  font-size: 1.2em;
-}
+  .me {
+    color: #ffffff;
+    width: 50%;
+    text-align: center;
+    margin: 0 auto 0 auto;
+    line-height: 3em;
+    font-size: 1.2em;
+  }
 }
 
 #about .hr {
   background: #080b4d;
   border: none;
   width: 100%;
-  height: 0.1em;
+  height: .4em;
   margin: 19em 0 15em 0em;
 }
 
 .about-heading {
   display: block;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   width: 100%;
   margin: 0 auto 3em auto;
   text-align: center;
@@ -200,7 +196,6 @@ h1 {
 .about-heading h2 {
   font-size: 3em;
   color: rgb(136, 139, 168);
-
 }
 
 .about-heading span {
@@ -214,22 +209,21 @@ h1 {
   background: #080b4d;
   border: none;
   width: 100%;
-  height: 0.1em;
+  height: .4em;
   margin: 19em 0 15em 0em;
 }
 
 .tools-heading {
   display: block;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   width: 100%;
-  margin: 0 auto 3em auto;
+  margin: 0 auto 10em auto;
   text-align: center;
 }
 
 .tools-heading h2 {
   font-size: 3em;
   color: rgb(136, 139, 168);
-
 }
 
 .tools-heading span {
@@ -243,6 +237,25 @@ h1 {
   flex-direction: row;
   justify-content: center;
   gap: 10em;
+  
+  text-align: center;
+  .tool-name {
+    text-align: center;
+    color: blue;
+    font-weight: bold;
+    margin-top: 2em;
+    font-size: 1.4em;
+  }
+}
+
+.adobe {
+  background-color: rgba(238, 238, 244, 0.977);
+  padding: 2em;
+  border-radius: 1em;
+}
+
+.colored {
+  font-size: 10em;
 }
 
 /* Projects */
