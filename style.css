@@ -136,15 +136,24 @@ h1 {
 }
 
 .btn {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
   margin-top: 2em;
 }
 
-.view-projects {
+.view-project {
+  background: #002aff;
+  color: #ffff;
+  box-shadow: 0 0 6px 1px #ffffff4b;
+}
+
+.let-talk:hover {
   background: #002aff;
   color: #ffff;
 }
 
-.primary {
+.button {
   font-family: "Fira Code", monospace;
   padding: 1em;
   border-radius: 0.5em;
@@ -153,7 +162,6 @@ h1 {
   display: inline-block;
   font-size: 1em;
   text-align: center;
-  box-shadow: 0 0 6px 1px #ffffff4b;
 }
 
 .view-projects:hover {
@@ -181,7 +189,7 @@ h1 {
   background: #080b4d;
   border: none;
   width: 100%;
-  height: .4em;
+  height: 0.4em;
   margin: 19em 0 15em 0em;
 }
 
@@ -209,7 +217,7 @@ h1 {
   background: #080b4d;
   border: none;
   width: 100%;
-  height: .4em;
+  height: 0.4em;
   margin: 19em 0 15em 0em;
 }
 
@@ -237,7 +245,7 @@ h1 {
   flex-direction: row;
   justify-content: center;
   gap: 10em;
-  
+
   text-align: center;
   .tool-name {
     text-align: center;
@@ -581,7 +589,12 @@ footer span {
 }
 /*  */
 
-/* Tablet & small laptop */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- Laptops / tablets landscape (<= 1200px) ---------- */
 @media (max-width: 1200px) {
   .hero {
     flex-direction: column;
@@ -590,13 +603,8 @@ footer span {
   }
 
   h1 {
-    width: auto;
-    font-size: clamp(2.8rem, 10vw, 5rem);
-  }
-
-  .occupation {
-    width: auto;
-    max-width: 100%;
+    width: 100%;
+    font-size: clamp(2.4rem, 8vw, 4rem);
   }
 
   .what-i-can-do {
@@ -606,94 +614,74 @@ footer span {
 
   .hero-image {
     width: 100%;
-    max-width: 40em;
-    margin-right: 0;
-    background-size: cover;
+    max-width: 30em;
+    margin: 0 auto;
   }
 
-  .hero-image:hover {
-    background-size: cover;
+  .who-ami {
+    margin-bottom: 2em;
   }
 
-  .about-heading,
-  .skills-heading,
+  /* big section spacing shrinks */
+  #about .hr,
+  #tools .hr {
+    margin: 8em 0 6em;
+  }
+
+  #about .me {
+    width: 80%;
+    line-height: 2.2em;
+  }
+
+  .tools-heading {
+    margin-bottom: 4em;
+  }
+
+  .tools-icons {
+    flex-wrap: wrap;
+    gap: 2em;
+    padding: 0 2em;
+  }
+  .colored {
+    font-size: 7em;
+  }
+
   .projects-heading,
   .education-heading,
   .contact-heading {
     margin: 6em 2em 2em;
-    flex-wrap: wrap;
     align-items: center;
   }
 
-  .about-heading h2,
-  .skills-heading h2,
   .projects-heading h2,
   .education-heading h2,
   .contact-heading h2 {
     font-size: 2.6em;
   }
 
-  .about-container {
-    flex-direction: column;
-    gap: 2em;
-  }
-
-  .about-text {
-    margin: 0 2em;
-  }
-
-  .me {
-    width: 100%;
-  }
-
-  .about-card {
-    margin: 0 2em;
-    height: auto;
-    padding: 3em 1.5em;
-  }
-
-  .about-card p {
-    width: 90%;
-  }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22em), 1fr));
-    gap: 1.5em;
-    padding: 0 2em;
-  }
-
-  .skill-card {
-    width: auto;
-    margin: 0;
-  }
-
   .project-grid {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5em;
-    padding: 0 2em;
+    padding: 1em 2em;
   }
-
   .project-card {
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
   }
 
   .contact-container {
     margin: 2em;
   }
-
   .contact-links {
     width: 100%;
     max-width: 30em;
   }
 }
 
-/* Mobile navigation */
+/* ---------- Tablets / mobile navigation (<= 900px) ---------- */
 @media (max-width: 900px) {
   header {
     padding: 1em 1.2em;
+    border-bottom-width: 0.4em;
   }
 
   .menu-btn {
@@ -704,10 +692,6 @@ footer span {
     flex-wrap: nowrap;
   }
 
-  .logo {
-    font-size: 1.4em;
-  }
-
   .nav-list {
     display: none;
     position: absolute;
@@ -715,12 +699,12 @@ footer span {
     left: 0;
     right: 0;
     flex-direction: column;
+    align-items: stretch;
     gap: 0;
-    background: #050807f5;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.116);
+    background: rgba(4, 4, 26, 0.97);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     padding: 0.5em 0;
   }
-
   .nav-list.active {
     display: flex;
   }
@@ -730,53 +714,109 @@ footer span {
     padding: 0.9em 1.5em;
   }
 
+  .get-in-touch-with-naga {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    transform: none;
+    font-size: 1em;
+  }
+
   .contact-container {
     flex-direction: column;
   }
-
   .get-in-touch h3,
   .get-in-touch p {
     width: 100%;
   }
+
+  #about .me {
+    width: 90%;
+  }
 }
 
-/* Phones */
+/* ---------- Phones (<= 700px) ---------- */
 @media (max-width: 700px) {
   .hero {
     margin: 6.5em 1.2em 0;
+    gap: 2em;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+  .what-i-can-do {
+    font-size: 1.1em;
   }
 
   .btn {
     flex-wrap: wrap;
     gap: 1em;
   }
+  .button {
+    flex: 1 1 8em;
+  }
 
-  .about-heading,
-  .skills-heading,
+  #about .hr,
+  #tools .hr {
+    margin: 5em 0 4em;
+    height: 0.3em;
+  }
+
+  #about .me {
+    width: 100%;
+    padding: 0 1.2em;
+    line-height: 1.9em;
+    font-size: 1.05em;
+  }
+
+  .about-heading h2,
+  .tools-heading h2 {
+    font-size: 2.2em;
+  }
+
+  .tools-heading {
+    margin-bottom: 2.5em;
+  }
+
+  .tools-icons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+    padding: 0 1.2em;
+  }
+  .adobe {
+    width: 100%;
+    max-width: 22em;
+    padding: 1.5em;
+  }
+  .colored {
+    font-size: 5em;
+  }
+  .tools-icons .tool-name {
+    margin-top: 1em;
+    font-size: 1.1em;
+  }
+
   .projects-heading,
   .education-heading,
   .contact-heading {
     margin: 5em 1.2em 1.5em;
+    gap: 0.6em;
   }
 
-  .about-heading h2,
-  .skills-heading h2,
   .projects-heading h2,
   .education-heading h2,
   .contact-heading h2 {
     font-size: 2em;
   }
 
-  .about-heading span,
-  .skills-heading span,
   .projects-heading span,
   .education-heading span,
   .contact-heading span {
     font-size: 1.2em;
   }
 
-  .about-heading hr,
-  .skills-heading hr,
   .projects-heading hr,
   .education-heading hr,
   .contact-heading hr {
@@ -786,32 +826,20 @@ footer span {
     margin: 0;
   }
 
-  .about-text {
-    margin: 0 1.2em;
-  }
-
-  .about-card {
-    margin: 0 1.2em;
-  }
-
-  .skills-grid,
-  .project-grid {
-    padding: 0 1.2em;
-  }
-
   .project-grid {
     grid-template-columns: 1fr;
+    padding: 0 1.2em;
   }
-
-  .skill-card,
   .project-card {
     padding: 2em 1.2em;
+  }
+  .project-card p {
+    width: 100%;
   }
 
   .education-container {
     width: calc(100% - 2.4em);
   }
-
   .education-card {
     flex-direction: column;
     padding: 1.5em;
@@ -820,15 +848,27 @@ footer span {
   .contact-container {
     margin: 1.5em 1.2em;
   }
-
   .contact-links p {
     overflow-wrap: anywhere;
   }
+
+  footer {
+    padding: 2em 1em;
+  }
 }
 
-@media (max-width: 900px) {
-  header {
-    bottom: 79em;
-    padding: 2em;
+@media (max-width: 400px) {
+  .logo p img {
+    width: 3em;
+  }
+  h1 {
+    font-size: 1.9rem;
+  }
+  .button {
+    width: 100%;
+  }
+  .about-heading h2,
+  .tools-heading h2 {
+    font-size: 1.8em;
   }
 }
