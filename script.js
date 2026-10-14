@@ -1,4 +1,4 @@
-// Mobile menu
+// For Mobile menu
 const menuBtn = document.querySelector(".menu-btn");
 const navList = document.querySelector(".nav-list");
 
@@ -79,8 +79,7 @@ window.addEventListener("scroll", () => {
 }, { passive: true }); 
 
 
-// 
-
+// Image Display and Navigation
 
 const lightbox = document.getElementById("projectLightbox");
 const lightboxImage = document.getElementById("lightboxImage");
