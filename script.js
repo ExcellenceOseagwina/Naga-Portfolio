@@ -28,3 +28,52 @@ document.addEventListener("keydown", (e) => {
 window.addEventListener("resize", () => {
     if (window.innerWidth > 900) setMenu(false);
 });
+
+
+//Scroll Down and Up Reveal Effects
+let lastScrollY = window.scrollY;
+
+const observer = new IntersectionObserver(
+    (entries) => {
+        const currentScrollY = window.scrollY;
+
+        const scrollingDown = currentScrollY > lastScrollY;
+
+        entries.forEach((entry) => {
+            const element = entry.target;
+
+            if (entry.isIntersecting) {
+                element.classList.remove("reveal-up", "reveal-down");
+
+                element.classList.add(
+                    scrollingDown ? "reveal-up" : "reveal-down"
+                );
+
+                // Trigger the transition
+                requestAnimationFrame(() => {
+                    element.classList.add("active");
+                });
+            } else {
+                // Reset so the animation can repeat
+                element.classList.remove(
+                    "active",
+                    "reveal-up",
+                    "reveal-down"
+                );
+            }
+        });
+
+        lastScrollY = currentScrollY;
+    },
+    {
+        threshold: 0.15
+    }
+);
+
+document.querySelectorAll(".reveal").forEach((element) => {
+    observer.observe(element);
+});
+
+window.addEventListener("scroll", () => {
+    lastScrollY = window.scrollY;
+}, { passive: true }); 
