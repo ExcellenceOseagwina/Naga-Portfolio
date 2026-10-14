@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Nagasaki Designs ND monogram">
+  <title>Nagasaki Designs</title>
+  <rect width="512" height="512" rx="96" fill="#040C54"/>
+  <g transform="translate(256 256) scale(0.8) translate(-490.5 -500)" fill="#FDFDFB">
+    <!-- N diagonal -->
+    <polygon points="249,356 294,356 512,644 448,644 249,375" stroke="#FDFDFB" stroke-width="12" stroke-linejoin="round"/>
+    <!-- N lower-left stub -->
+    <rect x="243" y="547" width="57" height="103" rx="14"/>
+    <!-- D (stem shared with N) -->
+    <path fill-rule="evenodd" d="M455 350H590A150 150 0 0 1 590 650H455Q447 650 447 642V358Q447 350 455 350ZM505 408V592H590A92 92 0 0 0 590 408Z"/>
+  </g>
+</svg>
