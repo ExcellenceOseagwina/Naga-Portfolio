@@ -771,6 +771,43 @@ footer span {
   transform: translateY(0);
 }
 
+.view-logo {
+  display: block;
+  cursor: pointer;
+}
+
+.hidden-logo {
+  display: none;
+}
+
+.reveal-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.view-logo {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.5em 0;
+  color: #fff;
+  background: transparent;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.view-logo:hover {
+  color: var(--blue-light);
+}
+
+.view-logo:focus-visible {
+  outline: 2px solid var(--blue-light);
+  outline-offset: 4px;
+}
+
 /* ==========================================================
    RESPONSIVE (only what clamp()/auto-fit can't handle)
    ========================================================== */

@@ -212,3 +212,26 @@ document.addEventListener("keydown", event => {
     }
   }
 });
+
+
+//View More 
+// For Logos Design 
+const viewMoreLogos = document.querySelector(".view-logo");
+const viewLogos = document.querySelector(".hidden-logo");
+
+viewMoreLogos.addEventListener("click", function(){
+  if (viewLogos.classList.contains('hidden-logo')){
+    viewLogos.classList.add('reveal-logo');
+    viewLogos.classList.remove('hidden-logo');
+      
+    viewMoreLogos.textContent = "View Less";
+  }
+  else{
+
+    viewLogos.classList.remove('reveal-logo');
+    viewLogos.classList.add('hidden-logo');
+      
+    viewMoreLogos.textContent = "View More";
+  }
+})
+
