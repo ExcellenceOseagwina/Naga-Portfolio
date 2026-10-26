@@ -1,85 +1,131 @@
-// For Mobile menu
+document.documentElement.classList.add("js");
+const header = document.querySelector("header");
+
+function updateHeaderHeight() {
+  document.documentElement.style.setProperty("--header-h", `${header.offsetHeight}px`);
+}
+
+updateHeaderHeight();
+window.addEventListener("resize", updateHeaderHeight);
+window.addEventListener("load", updateHeaderHeight); // logo image may change the height
+
 const menuBtn = document.querySelector(".menu-btn");
 const navList = document.querySelector(".nav-list");
 
 function setMenu(open) {
-    navList.classList.toggle("active", open);
-    menuBtn.setAttribute("aria-expanded", String(open));
+  navList.classList.toggle("active", open);
+  menuBtn.setAttribute("aria-expanded", String(open));
 
-    const icon = menuBtn.querySelector("i");
-    icon.classList.toggle("fa-bars", !open);
-    icon.classList.toggle("fa-xmark", open);
+  const icon = menuBtn.querySelector("i");
+  icon.classList.toggle("fa-bars", !open);
+  icon.classList.toggle("fa-xmark", open);
 }
 
 menuBtn.addEventListener("click", () => {
-    setMenu(!navList.classList.contains("active"));
+  setMenu(!navList.classList.contains("active"));
 });
 
-// Close menu after clicking a link
+// Close after choosing a link
 navList.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => setMenu(false));
+  link.addEventListener("click", () => setMenu(false));
 });
 
-// Close menu with Escape, or when the viewport grows back to desktop width
-document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") setMenu(false);
+// Close on outside click
+document.addEventListener("click", (event) => {
+  if (!navList.classList.contains("active")) return;
+  if (!header.contains(event.target)) setMenu(false);
 });
 
+// Close on Escape (only when the lightbox is not the thing handling Escape)
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && navList.classList.contains("active")) setMenu(false);
+});
+
+// Close if the viewport grows back to desktop width
 window.addEventListener("resize", () => {
-    if (window.innerWidth > 900) setMenu(false);
+  if (window.innerWidth > 900) setMenu(false);
 });
 
+const revealEls = document.querySelectorAll(".reveal");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-//Scroll Down and Up Reveal Effects
-let lastScrollY = window.scrollY;
+if (!("IntersectionObserver" in window) || prefersReducedMotion) {
+  // No animation possible/wanted: just show everything.
+  revealEls.forEach((el) => el.classList.add("active"));
+} else {
+  // Track direction in the scroll handler itself. The old code compared values AFTER the
+  // scroll listener had already overwritten them, so it always thought you scrolled up.
+  let lastY = window.scrollY;
+  let direction = "down";
 
-const observer = new IntersectionObserver(
+  window.addEventListener(
+    "scroll",
+    () => {
+      const y = window.scrollY;
+      if (y !== lastY) {
+        direction = y > lastY ? "down" : "up";
+        lastY = y;
+      }
+    },
+    { passive: true }
+  );
+
+  const revealObserver = new IntersectionObserver(
     (entries) => {
-        const currentScrollY = window.scrollY;
+      entries.forEach((entry) => {
+        const el = entry.target;
 
-        const scrollingDown = currentScrollY > lastScrollY;
+        if (entry.isIntersecting) {
+          el.classList.remove("reveal-up", "reveal-down");
+          el.classList.add(direction === "down" ? "reveal-up" : "reveal-down");
 
-        entries.forEach((entry) => {
-            const element = entry.target;
-
-            if (entry.isIntersecting) {
-                element.classList.remove("reveal-up", "reveal-down");
-
-                element.classList.add(
-                    scrollingDown ? "reveal-up" : "reveal-down"
-                );
-
-                // Trigger the transition
-                requestAnimationFrame(() => {
-                    element.classList.add("active");
-                });
-            } else {
-                // Reset so the animation can repeat
-                element.classList.remove(
-                    "active",
-                    "reveal-up",
-                    "reveal-down"
-                );
-            }
-        });
-
-        lastScrollY = currentScrollY;
+          void el.offsetWidth; // force a reflow so the starting offset is painted before "active"
+          el.classList.add("active");
+        } else {
+          // Reset so the animation can repeat
+          el.classList.remove("active", "reveal-up", "reveal-down");
+        }
+      });
     },
     {
-        threshold: 0.15
+      // threshold 0 + rootMargin: works for very tall sections (e.g. Projects on a phone),
+      // where "15% visible" could be taller than the screen and never trigger.
+      threshold: 0,
+      rootMargin: "0px 0px -10% 0px",
     }
-);
+  );
 
-document.querySelectorAll(".reveal").forEach((element) => {
-    observer.observe(element);
+  revealEls.forEach((el) => revealObserver.observe(el));
+}
+document.querySelectorAll(".view-more").forEach((button) => {
+  const grid = document.getElementById(button.getAttribute("aria-controls"));
+  if (!grid) return;
+
+  const extras = grid.querySelectorAll(".extra");
+
+  // Nothing extra in this category -> no button needed
+  if (extras.length === 0) {
+    button.hidden = true;
+    return;
+  }
+
+  button.addEventListener("click", () => {
+    const expanding = button.getAttribute("aria-expanded") === "false";
+
+    extras.forEach((item) => {
+      item.hidden = !expanding;
+    });
+
+    button.setAttribute("aria-expanded", String(expanding));
+    button.textContent = expanding ? "View Less" : "View More";
+
+    // Collapsing from far down the grid? Keep the user oriented.
+    if (!expanding) {
+      const top = grid.getBoundingClientRect().top;
+      if (top < 0) grid.scrollIntoView({ block: "start" });
+    }
+  });
 });
-
-window.addEventListener("scroll", () => {
-    lastScrollY = window.scrollY;
-}, { passive: true }); 
-
-
-// Image Display and Navigation
 
 const lightbox = document.getElementById("projectLightbox");
 const lightboxImage = document.getElementById("lightboxImage");
@@ -90,11 +136,14 @@ const closeButton = lightbox.querySelector(".lightbox-close");
 const previousButton = lightbox.querySelector(".lightbox-prev");
 const nextButton = lightbox.querySelector(".lightbox-next");
 
-const projectItems = [...document.querySelectorAll(".project-item")];
-
 let activeGallery = [];
 let activeIndex = 0;
-let previousFocus = null;
+
+function getGallery(category) {
+  return [...document.querySelectorAll(".project-item")].filter(
+    (item) => item.dataset.gallery === category && !item.hidden
+  );
+}
 
 function showImage(index) {
   if (!activeGallery.length) return;
@@ -102,136 +151,73 @@ function showImage(index) {
   activeIndex = (index + activeGallery.length) % activeGallery.length;
 
   const item = activeGallery[activeIndex];
-  const image = item.querySelector("img");
+  const thumb = item.querySelector("img");
 
-  lightboxImage.src = image.currentSrc || image.src;
-  lightboxImage.alt = image.alt;
-  lightboxTitle.textContent = item.dataset.title || image.alt;
-  lightboxCounter.textContent =
-    `${activeIndex + 1} / ${activeGallery.length}`;
+  // Optional: add data-full="path/to/large.jpg" on a .project-item to show a bigger file in the lightbox
+  lightboxImage.src = item.dataset.full || thumb.currentSrc || thumb.src;
+  lightboxImage.alt = thumb.alt;
+  lightboxTitle.textContent = item.dataset.title || thumb.alt;
+  lightboxCounter.textContent = `${activeIndex + 1} / ${activeGallery.length}`;
 
-  previousButton.disabled = activeGallery.length < 2;
-  nextButton.disabled = activeGallery.length < 2;
+  const single = activeGallery.length < 2;
+  previousButton.disabled = single;
+  nextButton.disabled = single;
 
-  previousButton.setAttribute(
-    "aria-label",
-    `Previous image, ${activeIndex === 0 ? activeGallery.length : activeIndex} of ${activeGallery.length}`
-  );
-
-  nextButton.setAttribute(
-    "aria-label",
-    `Next image, ${(activeIndex + 1) % activeGallery.length + 1} of ${activeGallery.length}`
-  );
+  const total = activeGallery.length;
+  const prevNumber = ((activeIndex - 1 + total) % total) + 1;
+  const nextNumber = ((activeIndex + 1) % total) + 1;
+  previousButton.setAttribute("aria-label", `Previous image, ${prevNumber} of ${total}`);
+  nextButton.setAttribute("aria-label", `Next image, ${nextNumber} of ${total}`);
 }
 
+lightboxImage.addEventListener("error", () => {
+  lightboxTitle.textContent = "Image failed to load";
+});
+
 function openLightbox(item) {
-  const category = item.dataset.gallery;
+  activeGallery = getGallery(item.dataset.gallery);
+  showImage(activeGallery.indexOf(item));
 
-  activeGallery = projectItems.filter(
-    project => project.dataset.gallery === category
-  );
-
-  activeIndex = activeGallery.indexOf(item);
-  previousFocus = item;
-
-  showImage(activeIndex);
-
-  lightbox.inert = false;
-  lightbox.setAttribute("aria-hidden", "false");
+  lightbox.showModal();                    // native focus trap, Esc to close, inert page behind
   document.body.style.overflow = "hidden";
-
-  closeButton.focus();
 }
 
 function closeLightbox() {
-  if (lightbox.getAttribute("aria-hidden") === "true") return;
-
-  lightbox.setAttribute("aria-hidden", "true");
-  lightbox.inert = true;
-  document.body.style.overflow = "";
-
-  lightboxImage.removeAttribute("src");
-  activeGallery = [];
-
-  if (previousFocus) {
-    previousFocus.focus();
-  }
+  if (lightbox.open) lightbox.close();
 }
 
-projectItems.forEach(item => {
-  item.addEventListener("click", () => openLightbox(item));
+// Runs for every way of closing (button, Esc, backdrop) and restores the page.
+lightbox.addEventListener("close", () => {
+  document.body.style.overflow = "";
+  lightboxImage.removeAttribute("src");
+  activeGallery = [];
+  // <dialog> returns focus to the thumbnail that opened it automatically.
 });
 
-previousButton.addEventListener("click", () => {
-  showImage(activeIndex - 1);
+// Event delegation: works for every item, including ones added later.
+document.querySelector(".projects-container").addEventListener("click", (event) => {
+  const item = event.target.closest(".project-item");
+  if (item) openLightbox(item);
 });
 
-nextButton.addEventListener("click", () => {
-  showImage(activeIndex + 1);
-});
-
+previousButton.addEventListener("click", () => showImage(activeIndex - 1));
+nextButton.addEventListener("click", () => showImage(activeIndex + 1));
 closeButton.addEventListener("click", closeLightbox);
 
-// Close only when the dark backdrop itself is clicked.
-lightbox.addEventListener("click", event => {
-  if (event.target === lightbox) {
-    closeLightbox();
-  }
+// Click on the dark backdrop (the dialog element itself, not its children) closes it.
+lightbox.addEventListener("click", (event) => {
+  if (event.target === lightbox) closeLightbox();
 });
 
-// Keyboard navigation.
-document.addEventListener("keydown", event => {
-  if (lightbox.getAttribute("aria-hidden") !== "false") return;
+// Arrow-key navigation while open (Esc is handled natively by <dialog>).
+document.addEventListener("keydown", (event) => {
+  if (!lightbox.open) return;
 
-  if (event.key === "Escape") {
-    event.preventDefault();
-    closeLightbox();
-  } else if (event.key === "ArrowLeft") {
+  if (event.key === "ArrowLeft") {
     event.preventDefault();
     showImage(activeIndex - 1);
   } else if (event.key === "ArrowRight") {
     event.preventDefault();
     showImage(activeIndex + 1);
-  } else if (event.key === "Tab") {
-    // Keep keyboard focus within the modal.
-    const controls = [
-      closeButton,
-      previousButton,
-      nextButton
-    ].filter(control => !control.disabled);
-
-    const first = controls[0];
-    const last = controls[controls.length - 1];
-
-    if (event.shiftKey && document.activeElement === first) {
-      event.preventDefault();
-      last.focus();
-    } else if (!event.shiftKey && document.activeElement === last) {
-      event.preventDefault();
-      first.focus();
-    }
   }
 });
-
-
-//View More 
-// For Logos Design 
-const viewMoreLogos = document.querySelector(".view-logo");
-const viewLogos = document.querySelector(".hidden-logo");
-
-viewMoreLogos.addEventListener("click", function(){
-  if (viewLogos.classList.contains('hidden-logo')){
-    viewLogos.classList.add('reveal-logo');
-    viewLogos.classList.remove('hidden-logo');
-      
-    viewMoreLogos.textContent = "View Less";
-  }
-  else{
-
-    viewLogos.classList.remove('reveal-logo');
-    viewLogos.classList.add('hidden-logo');
-      
-    viewMoreLogos.textContent = "View More";
-  }
-})
-

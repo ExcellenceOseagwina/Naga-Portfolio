@@ -4,774 +4,591 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NAGASAKI</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="shortcut icon" href="./assets/favicon/favicon.svg" type="image/x-icon" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <title>Nagasaki Designs | Graphic &amp; Product Designer</title>
+  <meta name="description"
+    content="Nagasaki is a Nigerian graphics and product designer creating logos, brand identities, UI/UX, flyers and mockups." />
+  <meta name="theme-color" content="#04041a" />
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <!-- Open Graph (link previews on WhatsApp, Instagram, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nagasaki Designs | Graphic & Product Designer" />
+  <meta property="og:description"
+    content="Logos, brand identities, UI/UX, flyers and mockups by a Nigerian designer with 2+ years of experience." />
+  <meta property="og:image" content="assets/images/nd-navy.svg" />
+
+  <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!--
+    Icon libraries are pinned to exact versions.
+    TODO: add integrity="sha384-..." + crossorigin="anonymous" (see the README notes),
+    or better, self-host these files.
+  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header>
-    <nav class="navbar menubar">
-      <div class="logo">
-        <p><img src="./assets/images/nd-white.svg" alt="" /></p>
-      </div>
+    <nav class="navbar" aria-label="Main navigation">
+      <a class="logo" href="#home" aria-label="Nagasaki Designs, back to top">
+        <img src="assets/images/nd-white.svg" alt="Nagasaki Designs logo" width="64" height="64" />
+      </a>
+
       <button class="menu-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false"
         aria-controls="nav-list">
-        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
       </button>
+
       <ul class="nav-list" id="nav-list">
-        <li><a id="#home" href="#home">Home</a></li>
-        <li><a id="#about" href="#about">About</a></li>
-        <li><a id="#skills" href="#tools">Tools</a></li>
-        <li><a id="#services" href="#services">Services</a></li>
-        <li><a id="#projects" href="#projects">Projects</a></li>
-        <div class="get-in-touch-with-naga">
-          <li><a id="#get-in-touch" href="#get-in-touch">Get In Touch</a></li>
-        </div>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li class="get-in-touch-with-naga"><a href="#get-in-touch">Get In Touch</a></li>
       </ul>
     </nav>
   </header>
-  <section id="home" class="reveal">
-    <div class="hero">
-      <div class="hero-container">
-        <div class="who-ami">
-          <p class="whoami">
-            HELLO, I AM NAGASAKI
+
+  <main id="main">
+
+    <!-- ========== HOME ========== -->
+    <section id="home" class="reveal">
+      <div class="hero">
+        <div class="hero-container">
+          <p class="whoami">HELLO, I AM NAGASAKI</p>
+
+          <h1 class="name">
+            I Turn Ideas Into Visual <span>Experiences</span>
+          </h1>
+
+          <p class="what-i-can-do">
+            I'm a Nigerian graphics and product designer with 2+ years of
+            experience, creating clean and memorable brands, designs and digital
+            experiences.
           </p>
 
+          <div class="btn">
+            <a href="#projects" class="button view-projects">View Projects</a>
+            <a href="#get-in-touch" class="button let-talk">Let's Talk</a>
+          </div>
         </div>
-        <h1 class="name">
-          I Turn Ideas Into Visual <span>Experiences</span>
-        </h1>
-        <br />
 
-        <p class="what-i-can-do">
-          I'm a Nigerian graphics and product designer with 2+ years of
-          experience, creating clean and memorable brands, designs and digital
-          experiences.
-        </p>
-        <div class="btn">
-          <a href="#projects" class="button view-projects">
-            View Projects
-          </a>
-          <a href="#get-in-touch" class="button let-talk">Let's Talk</a>
+        <div class="hero-image">
+          <img src="assets/images/nd-navy.svg" alt="Nagasaki Designs monogram in navy blue" width="600" height="600" />
         </div>
       </div>
-      <div class="hero-image">
-        <img src="./assets/images/nd-navy.svg" alt="image" srcset="" />
-      </div>
-    </div>
-  </section>
-  <section id="about" class="reveal">
-    <div class="hr"></div>
-    <div class="about-heading">
-      <span>01.</span>
-      <br>
-      <br>
-      <h2>About Me</h2>
-    </div>
-    <div class="about-container">
-      <div class="about-text">
-        <p class="me">I'm the designer behind Nagasaki Designs. I partner with founders and small businesses to shape
-          identities and digital products that look intentional and feel effortless.</p>
+    </section>
 
-        <p class="me">Every project starts with the idea and ends with assets you can ship — whether that's a logo, a
-          full app UI or a campaign flyer.</p>
-
-
+    <!-- ========== ABOUT ========== -->
+    <section id="about" class="reveal">
+      <div class="hr"></div>
+      <div class="section-heading">
+        <span class="section-number">01.</span>
+        <h2>About Me</h2>
       </div>
 
-    </div>
-  </section>
-  <section id="tools" class="reveal">
-    <div class="hr"></div>
-    <div class="tools-heading">
-      <span>02.</span>
-      <br>
-      <br>
-      <h2>My Tools</h2>
-    </div>
-    <div class="tools-icons">
-      <div class="adobe">
-
-        <i class="devicon-photoshop-plain colored"></i>
-        <p class="tool-name">Adobe Photoshop</p>
+      <div class="about-container">
+        <div class="about-text">
+          <p class="me">
+            I'm the designer behind Nagasaki Designs. I partner with founders and small businesses to shape
+            identities and digital products that look intentional and feel effortless.
+          </p>
+          <p class="me">
+            Every project starts with the idea and ends with assets you can ship — whether that's a logo, a
+            full app UI or a campaign flyer.
+          </p>
+        </div>
       </div>
-      <div class="adobe">
+    </section>
 
-        <i class="devicon-illustrator-plain colored"></i>
-        <p class="tool-name">Adobe Illustrator</p>
-      </div>
-      <div class="adobe">
-
-
-        <i class="devicon-figma-plain colored"></i>
-        <p class="tool-name">Figma</p>
+    <!-- ========== TOOLS ========== -->
+    <section id="tools" class="reveal">
+      <div class="hr"></div>
+      <div class="section-heading">
+        <span class="section-number">02.</span>
+        <h2>My Tools</h2>
       </div>
 
+      <div class="tools-icons">
+        <div class="tool-card">
+          <i class="devicon-photoshop-plain colored" aria-hidden="true"></i>
+          <p class="tool-name">Adobe Photoshop</p>
+        </div>
+        <div class="tool-card">
+          <i class="devicon-illustrator-plain colored" aria-hidden="true"></i>
+          <p class="tool-name">Adobe Illustrator</p>
+        </div>
+        <div class="tool-card">
+          <i class="devicon-figma-plain colored" aria-hidden="true"></i>
+          <p class="tool-name">Figma</p>
+        </div>
+      </div>
+    </section>
 
-    </div>
-    </div>
+    <!-- ========== SERVICES ========== -->
+    <section id="services" class="reveal">
+      <div class="hr"></div>
+      <div class="section-heading section-heading--tight">
+        <span class="section-number">03.</span>
+        <h2>Services</h2>
+      </div>
 
-    </div>
-  </section>
-  <section id="services" class="reveal">
-    <div class="hr"></div>
-    <div class="services-heading">
-      <span>03.</span>
-      <br>
-      <br>
-      <h2>Services</h2>
-    </div>
-    <div class="my-services">
-
-      <!-- Services Section -->
-      <section class="services section" id="services">
+      <div class="services section">
         <div class="services-container">
 
-          <div class="services-header">
-            <span class="section-label">
-              <span class="label-dot"></span>
-              WHAT I OFFER
-            </span>
+        <div class="services-header">
+  <h2>
+    Creative solutions.<br />
+    <span>Thoughtful design.</span>
+  </h2>
 
-            <h2>
-              Creative solutions.<br />
-              <span>Thoughtful design.</span>
-            </h2>
-
-            <p class="services-intro">
-              I make ideas become design which create an identity of its own for brands and user experience for the
-              digital space.
-            </p>
-          </div>
+  <p class="services-intro">
+    I turn ideas into designs that give brands an identity of their own and create great
+    experiences in the digital space.
+  </p>
+</div>
 
           <div class="services-grid">
 
-            <!-- Service 01 -->
             <article class="service-card">
               <div class="service-top">
-                <div class="service-icon">
-                  <i class="fa-solid fa-pen-nib"></i>
-                </div>
+                <div class="service-icon"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i></div>
                 <span class="service-number">01</span>
               </div>
-
               <h3>Logo Design</h3>
-
-              <p>
-                Distinctive, professional logos that capture your brand's
-                personality and create a lasting first impression.
-              </p>
-
-              <div class="service-tags">
-                <span>Logo Concepts</span>
-                <span>Logo Variations</span>
-              </div>
-
-              <a href="#contact" class="service-link" aria-label="Discuss logo design">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <p>Distinctive, professional logos that capture your brand's personality and create a lasting first
+                impression.</p>
+              <div class="service-tags"><span>Logo Concepts</span><span>Logo Variations</span></div>
+              <a href="#get-in-touch" class="service-link" aria-label="Discuss logo design">
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
               </a>
             </article>
 
-            <!-- Service 02 -->
             <article class="service-card">
               <div class="service-top">
-                <div class="service-icon">
-                  <i class="fa-solid fa-fingerprint"></i>
-                </div>
+                <div class="service-icon"><i class="fa-solid fa-fingerprint" aria-hidden="true"></i></div>
                 <span class="service-number">02</span>
               </div>
-
               <h3>Brand Identity</h3>
-
-              <p>
-                Cohesive visual identities that give your business a
-                recognizable look across digital and print platforms.
-              </p>
-
-              <div class="service-tags">
-                <span>Typography</span>
-                <span>Color Systems</span>
-              </div>
-
-              <a href="#contact" class="service-link" aria-label="Discuss brand identity">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <p>Cohesive visual identities that give your business a recognizable look across digital and print
+                platforms.</p>
+              <div class="service-tags"><span>Typography</span><span>Color Systems</span></div>
+              <a href="#get-in-touch" class="service-link" aria-label="Discuss brand identity">
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
               </a>
             </article>
 
-            <!-- Service 03 -->
             <article class="service-card">
               <div class="service-top">
-                <div class="service-icon">
-                  <i class="fa-solid fa-layer-group"></i>
-                </div>
+                <div class="service-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></div>
                 <span class="service-number">03</span>
               </div>
-
               <h3>UI/UX Design</h3>
-
-              <p>
-                User-focused interfaces and intuitive experiences for
-                websites, mobile applications, and digital products.
-              </p>
-
-              <div class="service-tags">
-                <span>Web Design</span>
-                <span>Mobile UI</span>
-              </div>
-
-              <a href="#contact" class="service-link" aria-label="Discuss UI and UX design">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <p>User-focused interfaces and intuitive experiences for websites, mobile applications, and digital
+                products.</p>
+              <div class="service-tags"><span>Web Design</span><span>Mobile UI</span></div>
+              <a href="#get-in-touch" class="service-link" aria-label="Discuss UI and UX design">
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
               </a>
             </article>
 
-            <!-- Service 04 -->
             <article class="service-card">
               <div class="service-top">
-                <div class="service-icon">
-                  <i class="fa-solid fa-image"></i>
-                </div>
+                <div class="service-icon"><i class="fa-solid fa-image" aria-hidden="true"></i></div>
                 <span class="service-number">04</span>
               </div>
-
               <h3>Flyers</h3>
-
-              <p>
-                Eye-catching promotional designs that communicate your
-                message and capture attention across platforms.
-              </p>
-
-              <div class="service-tags">
-                <span>Flyers</span>
-                <span>Social Media</span>
-              </div>
-
-              <a href="#contact" class="service-link" aria-label="Discuss graphic design">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <p>Eye-catching promotional designs that communicate your message and capture attention across
+                platforms.</p>
+              <div class="service-tags"><span>Flyers</span><span>Social Media</span></div>
+              <a href="#get-in-touch" class="service-link" aria-label="Discuss flyer design">
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
               </a>
             </article>
 
-            <!-- Service 05 -->
             <article class="service-card">
               <div class="service-top">
-                <div class="service-icon">
-                  <i class="fa-solid fa-cube"></i>
-                </div>
+                <div class="service-icon"><i class="fa-solid fa-cube" aria-hidden="true"></i></div>
                 <span class="service-number">05</span>
               </div>
-
               <h3>Product Mockups</h3>
-
-              <p>
-                Realistic, polished presentations that showcase your
-                branding, packaging, and creative concepts.
-              </p>
-
-              <div class="service-tags">
-                <span>Packaging</span>
-                <span>Presentations</span>
-              </div>
-
-              <a href="#contact" class="service-link" aria-label="Discuss product mockups">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <p>Realistic, polished presentations that showcase your branding, packaging, and creative concepts.</p>
+              <div class="service-tags"><span>Packaging</span><span>Presentations</span></div>
+              <a href="#get-in-touch" class="service-link" aria-label="Discuss product mockups">
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
               </a>
             </article>
 
-            <!-- Service 06: Adobe Illustrator -->
             <article class="service-card">
               <div class="service-top">
-                <div class="service-icon">
-                  <i class="fa-solid fa-bezier-curve"></i>
-                </div>
+                <div class="service-icon"><i class="fa-solid fa-bezier-curve" aria-hidden="true"></i></div>
                 <span class="service-number">06</span>
               </div>
-
               <h3>Illustration</h3>
-
-              <p>
-                Custom vector artwork, illustrations, icons, and scalable
-                graphics crafted with Adobe Illustrator for digital and print.
-              </p>
-
-              <div class="service-tags">
-                <span>Adobe Illustrator</span>
-                <span>Vector Graphics</span>
-              </div>
-
-              <a href="#contact" class="service-link" aria-label="Discuss illustration and vector design">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <p>Custom vector artwork, illustrations, icons, and scalable graphics crafted with Adobe Illustrator
+                for digital and print.</p>
+              <div class="service-tags"><span>Adobe Illustrator</span><span>Vector Graphics</span></div>
+              <a href="#get-in-touch" class="service-link" aria-label="Discuss illustration and vector design">
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
               </a>
             </article>
 
           </div>
-
-
-
-        </div>
-      </section>
-
-
-    </div>
-  </section>
-  <section id="projects" class="reveal">
-    <div class="hr"></div>
-    <div class="projects-heading">
-      <span>05.</span>
-      <br>
-      <br>
-      <h2>Projects</h2>
-    </div>
-
-    <div class="projects-container">
-      <!-- LOGO -->
-      <div class="project-category">
-        <div class="category-heading">
-          <h3>Logo Design</h3>
-          <span>01 / LOGO</span>
-        </div>
-
-        <div class="project-grid">
-          <button class="project-item" data-gallery="logo" data-title="Logo Design 01" aria-label="View Logo Design 01">
-            <img src="/assets/images/logo/logo-1.jpeg" alt="Logo design 01" loading="lazy">
-            <span class="project-overlay"><i class="fa-solid fa-expand"></i></span>
-          </button>
-
-          <button class="project-item" data-gallery="logo" data-title="Logo Design 02" aria-label="View Logo Design 02">
-            <img src="/assets/images/logo/logo-2.jpeg" alt="Logo design 02" loading="lazy">
-            <span class="project-overlay"><i class="fa-solid fa-expand"></i></span>
-          </button>
-
-          <button class="project-item" data-gallery="logo" data-title="Logo Design 03" aria-label="View Logo Design 03">
-            <img src="/assets/images/logo/logo-3.jpeg" alt="Logo design 03" loading="lazy">
-            <span class="project-overlay"><i class="fa-solid fa-expand"></i></span>
-          </button>
-          <button class="view-logo" type="button" aria-expanded="false" aria-controls="hidden-logo">
-            View More
-          </button>
-   <div class="hidden-logo" id="hidden-logo">
-  <button
-    class="project-item"
-    data-gallery="logo"
-    data-title="Logo Design 04"
-    aria-label="View Logo Design 04"
-    type="button"
-  >
-    <img
-      src="./assets/images/logo/logo-4.jpeg"
-      alt="Logo design 04"
-      loading="lazy"
-    >
-    <span class="project-overlay">
-      <i class="fa-solid fa-expand"></i>
-    </span>
-  </button>
-
-  <button
-    class="project-item"
-    data-gallery="logo"
-    data-title="Logo Design 05"
-    aria-label="View Logo Design 05"
-    type="button"
-  >
-    <img
-      src="./assets/images/logo/logo-3.jpeg"
-      alt="Logo design 05"
-      loading="lazy"
-    >
-    <span class="project-overlay">
-      <i class="fa-solid fa-expand"></i>
-    </span>
-  </button>
-</div>
         </div>
       </div>
+    </section>
 
-      <!-- FLYERS -->
-      <div class="project-category">
-        <div class="category-heading">
-          <h3>Flyers</h3>
-          <span>02 / GRAPHICS</span>
-        </div>
-
-        <div class="project-grid">
-          <button class="project-item" data-gallery="flyers" data-title="Flyer Design 01"
-            aria-label="View Flyer Design 01">
-            <img src="/assets/images/flyers/flyer-1.jpeg" alt="Flyer design 01" loading="lazy">
-            <span class="project-overlay"><i class="fa-solid fa-expand"></i></span>
-          </button>
-
-          <button class="project-item" data-gallery="flyers" data-title="Flyer Design 02"
-            aria-label="View Flyer Design 02">
-            <img src="assets/images/flyers/flyer-2.jpeg" alt="Flyer design 02" loading="lazy">
-            <span class="project-overlay"><i class="fa-solid fa-expand"></i></span>
-          </button>
-
-          <button class="project-item" data-gallery="flyers" data-title="Flyer Design 03"
-            aria-label="View Flyer Design 03">
-            <img src="assets/images/flyers/flyer-3.jpeg" alt="Flyer design 03" loading="lazy">
-            <span class="project-overlay"><i class="fa-solid fa-expand"></i></span>
-          </button>
-          <button class="view-logo" type="button" aria-expanded="false" aria-controls="hidden-logo">
-            View More
-          </button>
-   <div class="hidden-logo" id="hidden-logo">
-  <button
-    class="project-item"
-    data-gallery="logo"
-    data-title="Logo Design 04"
-    aria-label="View Logo Design 04"
-    type="button"
-  >
-    <img
-      src="./assets/images/logo/logo-4.jpeg"
-      alt="Logo design 04"
-      loading="lazy"
-    >
-    <span class="project-overlay">
-      <i class="fa-solid fa-expand"></i>
-    </span>
-  </button>
-
-  <button
-    class="project-item"
-    data-gallery="logo"
-    data-title="Logo Design 05"
-    aria-label="View Logo Design 05"
-    type="button"
-  >
-    <img
-      src="./assets/images/logo/logo-3.jpeg"
-      alt="Logo design 05"
-      loading="lazy"
-    >
-    <span class="project-overlay">
-      <i class="fa-solid fa-expand"></i>
-    </span>
-  </button>
-</div>
-        </div>
+    <!-- ========== PROJECTS ==========
+      Pattern for every category:
+        1. .project-grid has a UNIQUE id.
+        2. Extra items sit directly inside the grid with class="extra" and the `hidden` attribute.
+        3. The View More button sits AFTER the grid and points to it with aria-controls.
+      script.js wires every .view-more button automatically. Remove the extras (and the button)
+      from a category and nothing else needs changing.
+    -->
+    <section id="projects" class="reveal">
+      <div class="hr"></div>
+      <div class="section-heading">
+        <span class="section-number">04.</span>
+        <h2>Projects</h2>
       </div>
 
-      <!-- MOCKUPS -->
-      <div class="project-category">
-        <div class="category-heading">
-          <h3>Mockups</h3>
-          <span>03 / PRESENTATION</span>
+      <div class="projects-container">
+
+        <!-- LOGO -->
+        <div class="project-category">
+          <div class="category-heading">
+            <h3>Logo Design</h3>
+            <span>01 / LOGO</span>
+          </div>
+
+          <div class="project-grid" id="logo-grid">
+            <button class="project-item" type="button" data-gallery="logo" data-title="Logo Design 01"
+              aria-label="View Logo Design 01">
+              <img src="assets/images/logo/logo-1.jpeg" alt="Logo design 01" width="800" height="600" loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <button class="project-item" type="button" data-gallery="logo" data-title="Logo Design 02"
+              aria-label="View Logo Design 02">
+              <img src="assets/images/logo/logo-2.jpeg" alt="Logo design 02" width="800" height="600" loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <button class="project-item" type="button" data-gallery="logo" data-title="Logo Design 03"
+              aria-label="View Logo Design 03">
+              <img src="assets/images/logo/logo-3.jpeg" alt="Logo design 03" width="800" height="600" loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+
+            <!-- extras -->
+            <button class="project-item extra" type="button" data-gallery="logo" data-title="Logo Design 04"
+              aria-label="View Logo Design 04" hidden>
+              <img src="assets/images/logo/logo-4.jpeg" alt="Logo design 04" width="800" height="600" loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <button class="project-item extra" type="button" data-gallery="logo" data-title="Logo Design 05"
+              aria-label="View Logo Design 05" hidden>
+              <img src="assets/images/logo/logo-5.jpeg" alt="Logo design 05" width="800" height="600" loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+          </div>
+
+          <button class="view-more" type="button" aria-expanded="false" aria-controls="logo-grid">View More</button>
         </div>
 
-        <div class="project-grid">
-          <button class="project-item" data-gallery="mockups" data-title="Mockup 01" aria-label="View Mockup 01">
-            <img src="assets/images/mockups/mockup-01.jpeg" alt="Product mockup 01" loading="lazy">
-            <span class="project-overlay"><i class="fa-solid fa-expand"></i></span>
-          </button>
+        <!-- FLYERS -->
+        <div class="project-category">
+          <div class="category-heading">
+            <h3>Flyers</h3>
+            <span>02 / GRAPHICS</span>
+          </div>
 
-          <button class="project-item" data-gallery="mockups" data-title="Mockup 02" aria-label="View Mockup 02">
-            <img src="assets/images/mockups/mockup-02.jpeg" alt="Product mockup 02" loading="lazy">
-            <span class="project-overlay"><i class="fa-solid fa-expand"></i></span>
-          </button>
+          <div class="project-grid" id="flyers-grid">
+            <button class="project-item" type="button" data-gallery="flyers" data-title="Flyer Design 01"
+              aria-label="View Flyer Design 01">
+              <img src="assets/images/flyers/flyer-1.jpeg" alt="Flyer design 01" width="800" height="600"
+                loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <button class="project-item" type="button" data-gallery="flyers" data-title="Flyer Design 02"
+              aria-label="View Flyer Design 02">
+              <img src="assets/images/flyers/flyer-2.jpeg" alt="Flyer design 02" width="800" height="600"
+                loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <button class="project-item" type="button" data-gallery="flyers" data-title="Flyer Design 03"
+              aria-label="View Flyer Design 03">
+              <img src="assets/images/flyers/flyer-3.jpeg" alt="Flyer design 03" width="800" height="600"
+                loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
 
-          <button class="project-item" data-gallery="mockups" data-title="Mockup 03" aria-label="View Mockup 03">
-            <img src="assets/images/mockups/mockup-03.jpeg" alt="Product mockup 03" loading="lazy">
-            <span class="project-overlay"><i class="fa-solid fa-expand"></i></span>
-          </button>
-          <button class="view-logo" type="button" aria-expanded="false" aria-controls="hidden-logo">
-            View More
-          </button>
-   <div class="hidden-logo" id="hidden-logo">
-  <button
-    class="project-item"
-    data-gallery="logo"
-    data-title="Logo Design 04"
-    aria-label="View Logo Design 04"
-    type="button"
-  >
-    <img
-      src="./assets/images/logo/logo-4.jpeg"
-      alt="Logo design 04"
-      loading="lazy"
-    >
-    <span class="project-overlay">
-      <i class="fa-solid fa-expand"></i>
-    </span>
-  </button>
+            <!-- extras -->
+            <button class="project-item extra" type="button" data-gallery="flyers" data-title="Flyer Design 04"
+              aria-label="View Flyer Design 04" hidden>
+              <img src="assets/images/flyers/flyer-4.jpeg" alt="Flyer design 04" width="800" height="600"
+                loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <button class="project-item extra" type="button" data-gallery="flyers" data-title="Flyer Design 05"
+              aria-label="View Flyer Design 05" hidden>
+              <img src="assets/images/flyers/flyer-5.jpeg" alt="Flyer design 05" width="800" height="600"
+                loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+          </div>
 
-  <button
-    class="project-item"
-    data-gallery="logo"
-    data-title="Logo Design 05"
-    aria-label="View Logo Design 05"
-    type="button"
-  >
-    <img
-      src="./assets/images/logo/logo-3.jpeg"
-      alt="Logo design 05"
-      loading="lazy"
-    >
-    <span class="project-overlay">
-      <i class="fa-solid fa-expand"></i>
-    </span>
-  </button>
-</div>
+          <button class="view-more" type="button" aria-expanded="false" aria-controls="flyers-grid">View More</button>
         </div>
+
+        <!-- MOCKUPS -->
+        <div class="project-category">
+          <div class="category-heading">
+            <h3>Mockups</h3>
+            <span>03 / PRESENTATION</span>
+          </div>
+
+          <div class="project-grid" id="mockups-grid">
+            <button class="project-item" type="button" data-gallery="mockups" data-title="Mockup 01"
+              aria-label="View Mockup 01">
+              <img src="assets/images/mockups/mockup-01.jpeg" alt="Product mockup 01" width="800" height="600"
+                loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <button class="project-item" type="button" data-gallery="mockups" data-title="Mockup 02"
+              aria-label="View Mockup 02">
+              <img src="assets/images/mockups/mockup-02.jpeg" alt="Product mockup 02" width="800" height="600"
+                loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <button class="project-item" type="button" data-gallery="mockups" data-title="Mockup 03"
+              aria-label="View Mockup 03">
+              <img src="assets/images/mockups/mockup-03.jpeg" alt="Product mockup 03" width="800" height="600"
+                loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+
+            <!-- extras -->
+            <button class="project-item extra" type="button" data-gallery="mockups" data-title="Mockup 04"
+              aria-label="View Mockup 04" hidden>
+              <img src="assets/images/mockups/mockup-04.jpeg" alt="Product mockup 04" width="800" height="600"
+                loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <button class="project-item extra" type="button" data-gallery="mockups" data-title="Mockup 05"
+              aria-label="View Mockup 05" hidden>
+              <img src="assets/images/mockups/mockup-05.jpeg" alt="Product mockup 05" width="800" height="600"
+                loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+          </div>
+
+          <button class="view-more" type="button" aria-expanded="false" aria-controls="mockups-grid">View More</button>
+        </div>
+
+        <!-- MINI BRANDING -->
+        <div class="project-category">
+          <div class="category-heading">
+            <h3>Mini Branding</h3>
+            <span>04 / IDENTITY</span>
+          </div>
+
+          <div class="project-grid" id="branding-grid">
+            <button class="project-item" type="button" data-gallery="branding" data-title="Mini Branding 01"
+              aria-label="View Mini Branding 01">
+              <img src="assets/images/branding/branding-01.jpeg" alt="Mini branding project 01" width="800"
+                height="600" loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <button class="project-item" type="button" data-gallery="branding" data-title="Mini Branding 02"
+              aria-label="View Mini Branding 02">
+              <img src="assets/images/branding/branding-02.jpeg" alt="Mini branding project 02" width="800"
+                height="600" loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <button class="project-item" type="button" data-gallery="branding" data-title="Mini Branding 03"
+              aria-label="View Mini Branding 03">
+              <img src="assets/images/branding/branding-03.jpeg" alt="Mini branding project 03" width="800"
+                height="600" loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+
+            <!-- extras -->
+            <button class="project-item extra" type="button" data-gallery="branding" data-title="Mini Branding 04"
+              aria-label="View Mini Branding 04" hidden>
+              <img src="assets/images/branding/branding-04.jpeg" alt="Mini branding project 04" width="800"
+                height="600" loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <button class="project-item extra" type="button" data-gallery="branding" data-title="Mini Branding 05"
+              aria-label="View Mini Branding 05" hidden>
+              <img src="assets/images/branding/branding-05.jpeg" alt="Mini branding project 05" width="800"
+                height="600" loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+          </div>
+
+          <button class="view-more" type="button" aria-expanded="false" aria-controls="branding-grid">View More</button>
+        </div>
+
+        <!-- UI/UX -->
+        <div class="project-category">
+          <div class="category-heading">
+            <h3>UI/UX Design</h3>
+            <span>05 / DIGITAL</span>
+          </div>
+
+          <div class="project-grid" id="uiux-grid">
+            <button class="project-item" type="button" data-gallery="uiux" data-title="UI/UX Project 01"
+              aria-label="View UI/UX Project 01">
+              <img src="assets/images/uiux/uiux-01.jpeg" alt="UI/UX project 01" width="800" height="600"
+                loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <button class="project-item" type="button" data-gallery="uiux" data-title="UI/UX Project 02"
+              aria-label="View UI/UX Project 02">
+              <img src="assets/images/uiux/uiux-02.jpeg" alt="UI/UX project 02" width="800" height="600"
+                loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <button class="project-item" type="button" data-gallery="uiux" data-title="UI/UX Project 03"
+              aria-label="View UI/UX Project 03">
+              <img src="assets/images/uiux/uiux-03.jpeg" alt="UI/UX project 03" width="800" height="600"
+                loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+
+            <!-- extras -->
+            <button class="project-item extra" type="button" data-gallery="uiux" data-title="UI/UX Project 04"
+              aria-label="View UI/UX Project 04" hidden>
+              <img src="assets/images/uiux/uiux-04.jpeg" alt="UI/UX project 04" width="800" height="600"
+                loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <button class="project-item extra" type="button" data-gallery="uiux" data-title="UI/UX Project 05"
+              aria-label="View UI/UX Project 05" hidden>
+              <img src="assets/images/uiux/uiux-05.jpeg" alt="UI/UX project 05" width="800" height="600"
+                loading="lazy" />
+              <span class="project-overlay" aria-hidden="true"><i class="fa-solid fa-expand"></i></span>
+            </button>
+          </div>
+
+          <button class="view-more" type="button" aria-expanded="false" aria-controls="uiux-grid">View More</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section id="get-in-touch" class="reveal">
+      <div class="hr"></div>
+      <div class="section-heading">
+        <span class="section-number">05.</span>
+        <h2>Get In Touch</h2>
       </div>
 
-      <!-- MINI BRANDING -->
-      <div class="project-category">
-        <div class="category-heading">
-          <h3>Mini Branding</h3>
-          <span>04 / IDENTITY</span>
-        </div>
+      <div class="contact-container">
+        <h3 class="contact-title">Let's create something <span>great.</span></h3>
 
-        <div class="project-grid">
-          <button class="project-item" data-gallery="branding" data-title="Mini Branding 01"
-            aria-label="View Mini Branding 01">
-            <img src="assets/images/branding/branding-01.jpeg" alt="Mini branding project 01" loading="lazy">
-            <span class="project-overlay"><i class="fa-solid fa-expand"></i></span>
-          </button>
+        <p class="contact-description">
+          Have a project in mind or want to work together?
+          Reach out through any of my channels. I'd love to hear from you.
+        </p>
 
-          <button class="project-item" data-gallery="branding" data-title="Mini Branding 02"
-            aria-label="View Mini Branding 02">
-            <img src="assets/images/branding/branding-02.jpeg" alt="Mini branding project 02" loading="lazy">
-            <span class="project-overlay"><i class="fa-solid fa-expand"></i></span>
-          </button>
+        <div class="contact-links">
 
-          <button class="project-item" data-gallery="branding" data-title="Mini Branding 03"
-            aria-label="View Mini Branding 03">
-            <img src="assets/images/branding/branding-03.jpeg" alt="Mini branding project 03" loading="lazy">
-            <span class="project-overlay"><i class="fa-solid fa-expand"></i></span>
-          </button>
-          <button class="view-logo" type="button" aria-expanded="false" aria-controls="hidden-logo">
-            View More
-          </button>
-   <div class="hidden-logo" id="hidden-logo">
-  <button
-    class="project-item"
-    data-gallery="logo"
-    data-title="Logo Design 04"
-    aria-label="View Logo Design 04"
-    type="button"
-  >
-    <img
-      src="./assets/images/logo/logo-4.jpeg"
-      alt="Logo design 04"
-      loading="lazy"
-    >
-    <span class="project-overlay">
-      <i class="fa-solid fa-expand"></i>
-    </span>
-  </button>
+          <a href="https://www.tiktok.com/@nagasaki.designs" class="contact-link" target="_blank"
+            rel="noopener noreferrer">
+            <span class="contact-icon"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></span>
+            <span class="contact-info">
+              <strong>TikTok</strong>
+              <small>Follow my creative journey</small>
+            </span>
+            <i class="fa-solid fa-arrow-up-right-from-square contact-arrow" aria-hidden="true"></i>
+          </a>
 
-  <button
-    class="project-item"
-    data-gallery="logo"
-    data-title="Logo Design 05"
-    aria-label="View Logo Design 05"
-    type="button"
-  >
-    <img
-      src="./assets/images/logo/logo-3.jpeg"
-      alt="Logo design 05"
-      loading="lazy"
-    >
-    <span class="project-overlay">
-      <i class="fa-solid fa-expand"></i>
-    </span>
-  </button>
-</div>
+          <a href="https://www.instagram.com/nagasaki_design_" class="contact-link" target="_blank"
+            rel="noopener noreferrer">
+            <span class="contact-icon"><i class="fa-brands fa-instagram" aria-hidden="true"></i></span>
+            <span class="contact-info">
+              <strong>Instagram</strong>
+              <small>Explore my design work</small>
+            </span>
+            <i class="fa-solid fa-arrow-up-right-from-square contact-arrow" aria-hidden="true"></i>
+          </a>
+
+          <a href="https://wa.me/2348059779162" class="contact-link" target="_blank" rel="noopener noreferrer">
+            <span class="contact-icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+            <span class="contact-info">
+              <strong>WhatsApp</strong>
+              <small>Let's talk about your project</small>
+            </span>
+            <i class="fa-solid fa-arrow-up-right-from-square contact-arrow" aria-hidden="true"></i>
+          </a>
+
+          <a href="tel:+2348059779162" class="contact-link">
+            <span class="contact-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
+            <span class="contact-info">
+              <strong>Phone</strong>
+              <small>Give me a call</small>
+            </span>
+            <i class="fa-solid fa-arrow-up-right-from-square contact-arrow" aria-hidden="true"></i>
+          </a>
+
+          <a href="mailto:nagaobasuyi@gmail.com" class="contact-link">
+            <span class="contact-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+            <span class="contact-info">
+              <strong>Email</strong>
+              <small>Send me an inquiry</small>
+            </span>
+            <i class="fa-solid fa-arrow-up-right-from-square contact-arrow" aria-hidden="true"></i>
+          </a>
+
         </div>
       </div>
+    </section>
 
-      <!-- UI/UX -->
-      <div class="project-category">
-        <div class="category-heading">
-          <h3>UI/UX Design</h3>
-          <span>05 / DIGITAL</span>
-        </div>
+  </main>
 
-        <div class="project-grid">
-          <button class="project-item" data-gallery="uiux" data-title="UI/UX Project 01"
-            aria-label="View UI/UX Project 01">
-            <img src="assets/images/uiux/uiux-01.jpeg" alt="UI UX project 01" loading="lazy">
-            <span class="project-overlay"><i class="fa-solid fa-expand"></i></span>
-          </button>
+  <footer>
+    <p><span>Designed by</span> NAGASAKI &copy; 2026</p>
+  </footer>
 
-          <button class="project-item" data-gallery="uiux" data-title="UI/UX Project 02"
-            aria-label="View UI/UX Project 02">
-            <img src="assets/images/uiux/uiux-02.jpeg" alt="UI UX project 02" loading="lazy">
-            <span class="project-overlay"><i class="fa-solid fa-expand"></i></span>
-          </button>
-
-          <button class="project-item" data-gallery="uiux" data-title="UI/UX Project 03"
-            aria-label="View UI/UX Project 03">
-            <img src="assets/images/uiux/uiux-03.jpeg" alt="UI UX project 03" loading="lazy">
-            <span class="project-overlay"><i class="fa-solid fa-expand"></i></span>
-          </button>
-          <button class="view-logo" type="button" aria-expanded="false" aria-controls="hidden-logo">
-            View More
-          </button>
-   <div class="hidden-logo" id="hidden-logo">
-  <button
-    class="project-item"
-    data-gallery="logo"
-    data-title="Logo Design 04"
-    aria-label="View Logo Design 04"
-    type="button"
-  >
-    <img
-      src="./assets/images/logo/logo-4.jpeg"
-      alt="Logo design 04"
-      loading="lazy"
-    >
-    <span class="project-overlay">
-      <i class="fa-solid fa-expand"></i>
-    </span>
-  </button>
-
-  <button
-    class="project-item"
-    data-gallery="logo"
-    data-title="Logo Design 05"
-    aria-label="View Logo Design 05"
-    type="button"
-  >
-    <img
-      src="./assets/images/logo/logo-3.jpeg"
-      alt="Logo design 05"
-      loading="lazy"
-    >
-    <span class="project-overlay">
-      <i class="fa-solid fa-expand"></i>
-    </span>
-  </button>
-</div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- IMAGE LIGHTBOX MODAL -->
-  <div class="lightbox" id="projectLightbox" role="dialog" aria-modal="true" aria-label="Project image viewer"
-    aria-hidden="true" inert>
-
+  <!-- IMAGE LIGHTBOX (native <dialog>: built-in focus trap, Esc handling and inert background) -->
+  <dialog class="lightbox" id="projectLightbox" aria-label="Project image viewer">
     <button class="lightbox-close" type="button" aria-label="Close image viewer">
-      <i class="fa-solid fa-xmark"></i>
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
     </button>
 
     <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous image">
-      <i class="fa-solid fa-chevron-left"></i>
+      <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
     </button>
 
     <div class="lightbox-content">
-      <img id="lightboxImage" src="" alt="">
+      <img id="lightboxImage" alt="" />
       <div class="lightbox-caption">
         <span id="lightboxTitle">Project</span>
-        <span id="lightboxCounter">1 / 3</span>
+        <span id="lightboxCounter" aria-live="polite">1 / 3</span>
       </div>
     </div>
 
     <button class="lightbox-nav lightbox-next" type="button" aria-label="Next image">
-      <i class="fa-solid fa-chevron-right"></i>
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
     </button>
-  </div>
+  </dialog>
 
-  </section>
-  <section id="get-in-touch" class="reveal">
-    <div class="hr"></div>
-    <div class="contacts-heading">
-      <span>06.</span>
-      <br>
-      <br>
-      <h2>Get In Touch</h2>
-    </div>
-
-    <div class="contact-container">
-
-      <h2>Let's create something <span>great.</span></h2>
-
-      <p class="contact-description">
-        Have a project in mind or want to work together?
-        Reach out through any of my channels. I'd love to hear from you.
-      </p>
-
-      <div class="contact-links">
-
-        <!-- TikTok -->
-        <a href="https://www.tiktok.com/@nagasaki.designs" class="contact-link" target="_blank"
-          rel="noopener noreferrer">
-          <span class="contact-icon">
-            <i class="fa-brands fa-tiktok"></i>
-          </span>
-          <span class="contact-info">
-            <strong>TikTok</strong>
-            <small>Follow my creative journey</small>
-          </span>
-          <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
-        </a>
-
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/nagasaki_design_" class="contact-link" target="_blank"
-          rel="noopener noreferrer">
-          <span class="contact-icon">
-            <i class="fa-brands fa-instagram"></i>
-          </span>
-          <span class="contact-info">
-            <strong>Instagram</strong>
-            <small>Explore my design work</small>
-          </span>
-          <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
-        </a>
-
-        <!-- WhatsApp -->
-        <a href="https://wa.me/2348059779162" class="contact-link" target="_blank" rel="noopener noreferrer">
-          <span class="contact-icon">
-            <i class="fa-brands fa-whatsapp"></i>
-          </span>
-          <span class="contact-info">
-            <strong>WhatsApp</strong>
-            <small>Let's talk about your project</small>
-          </span>
-          <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
-        </a>
-
-        <!-- Phone -->
-        <a href="tel:+2348059779162" class="contact-link">
-          <span class="contact-icon">
-            <i class="fa-solid fa-phone"></i>
-          </span>
-          <span class="contact-info">
-            <strong>Phone</strong>
-            <small>Give me a call</small>
-          </span>
-          <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
-        </a>
-
-        <!-- Email -->
-        <a href="mailto:nagaobasuyi@gmail.com" class="contact-link">
-          <span class="contact-icon">
-            <i class="fa-solid fa-envelope"></i>
-          </span>
-          <span class="contact-info">
-            <strong>Email</strong>
-            <small>Send me an inquiry</small>
-          </span>
-          <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
-        </a>
-
-      </div>
-
-    </div>
-    <br>
-    <br>
-    <br>
-  </section>
-  <footer>
-    <p><span>Designed by</span> NAGASAKI &copy; 2026</p>
-  </footer>
   <script src="script.js" defer></script>
 </body>
 

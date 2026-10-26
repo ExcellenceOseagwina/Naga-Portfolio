@@ -1,26 +1,40 @@
 /* ---------- Variables ---------- */
 :root {
-  --accent: #1500ff;
-  --blue: #0051ff;
-  --blue-light: #3b82f6;
-  --heading-muted: rgb(136, 139, 168);
+  /* Brand */
+  --accent: #5b7cff;
+  --blue: #4f6bff;
+  --blue-light: #6b95ff;
   --divider: #080b4d;
   --surface: rgb(7, 7, 50);
+  --surface-hover: #0d0d63;
+
+  /* Text */
   --text: #f5f5f5;
   --muted: #bcbdbe;
-  --header-h: 5.5em;
+  --heading-muted: #a3a7cf;
 
-  /* Project / lightbox variables (must live on :root because the
-     lightbox sits outside any projects wrapper) */
+  /* Layout */
+  --header-h: 8em;
+
+  /* Projects / lightbox */
   --project-blue: #3b82f6;
   --project-card: #151821;
   --project-border: #272b36;
   --project-text: #f5f7fb;
-  --project-muted: #969cab;
+  --project-muted: #a7adbd;
+
+  /* Fonts */
+  --font-body:
+    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-mono:
+    "Fira Code", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-serif: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
-/* ---------- Reset & base ---------- */
-* {
+/* ---------- Reset & base ------ */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -32,10 +46,12 @@ html {
 }
 
 body {
+  min-height: 100vh;
   color: #e6fff5;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-body);
   overflow-x: hidden;
   background-image: linear-gradient(rgb(2, 2, 25), rgb(3, 3, 31));
+  background-attachment: fixed;
 }
 
 img {
@@ -44,14 +60,36 @@ img {
 }
 
 a {
-  text-decoration: none;
   color: #fff;
   font-weight: bold;
   font-size: 1em;
+  text-decoration: none;
 }
 
 a:hover {
-  color: rgb(9, 9, 156);
+  color: var(--blue-light);
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue-light);
+  outline-offset: 3px;
+}
+
+/* ---------- Skip link --------- */
+.skip-link {
+  position: fixed;
+  top: -4em;
+  left: 1em;
+  z-index: 2000;
+  padding: 0.7em 1.1em;
+  color: #fff;
+  background: var(--divider);
+  border: 2px solid var(--blue-light);
+  border-radius: 0.5em;
+}
+
+.skip-link:focus {
+  top: 1em;
 }
 
 /* ---------- Header / navigation ---------- */
@@ -61,7 +99,6 @@ header {
   z-index: 1000;
   padding: 1.9em;
   background-color: rgb(4, 4, 26);
-  backdrop-filter: blur(15px);
   border-bottom: 1em solid rgb(15, 15, 86);
   font-family:
     "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
@@ -75,8 +112,14 @@ header {
   flex-wrap: wrap;
 }
 
+.logo {
+  display: inline-block;
+  line-height: 0;
+}
+
 .logo img {
   width: 4em;
+  height: auto;
 }
 
 .nav-list {
@@ -90,12 +133,16 @@ header {
 .get-in-touch-with-naga {
   padding: 0.8em;
   font-size: 0.9em;
-  border: 2px solid rgba(0, 0, 255, 0.705);
+  border: 2px solid var(--blue);
   border-radius: 2em;
 }
 
 .get-in-touch-with-naga a {
-  color: rgb(7, 96, 220);
+  color: var(--blue-light);
+}
+
+.get-in-touch-with-naga a:hover {
+  color: #fff;
 }
 
 .menu-btn {
@@ -113,7 +160,7 @@ header {
 .hero {
   display: flex;
   gap: 3em;
-  margin: 10em 4em 0 3em;
+  margin: calc(var(--header-h) + 2em) 3em 0;
 }
 
 .hero-container {
@@ -124,32 +171,29 @@ header {
   flex: 0 1 35%;
 }
 
-.who-ami {
-  display: flex;
-  margin-bottom: clamp(2em, 5vw, 5em);
-}
-
 .whoami {
-  margin-bottom: 0.7em;
+  margin-bottom: clamp(1.5em, 4vw, 4em);
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
 }
 
 h1 {
   width: 100%;
   max-width: 14em;
   font-size: clamp(1.9rem, 5vw, 4rem);
-  line-height: 1em;
+  line-height: 1.05;
   font-family:
     "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 h1 span {
-  color: rgb(0, 0, 255);
+  color: var(--blue);
 }
 
 .what-i-can-do {
   width: 70%;
-  margin-top: 1em;
+  margin-top: 1.5em;
   font-size: clamp(1.05em, 1.6vw, 1.3em);
   color: #a2a3c6;
 }
@@ -164,23 +208,26 @@ h1 span {
 .button {
   display: inline-block;
   padding: 1em;
-  font-family: "Fira Code", monospace;
+  font-family: var(--font-mono);
   font-size: 1em;
   text-align: center;
-  border: 2px solid #002aff;
+  border: 2px solid var(--blue);
   border-radius: 0.5em;
   cursor: pointer;
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .view-projects:hover {
   color: #fff;
-  background: #002aff5d;
-  box-shadow: 0 0 25px rgba(17, 0, 255, 0.35);
+  background: rgba(79, 107, 255, 0.25);
+  box-shadow: 0 0 25px rgba(79, 107, 255, 0.35);
 }
 
 .let-talk:hover {
   color: #fff;
-  background: #002aff;
+  background: var(--blue);
 }
 
 /* ---------- Shared section layout ---------- */
@@ -188,41 +235,31 @@ h1 span {
   width: 100%;
   height: 0.4em;
   background: var(--divider);
-  margin: clamp(5em, 14vw, 19em) 0 clamp(4em, 10vw, 15em);
+  margin: clamp(3rem, 8vw, 8rem) 0 clamp(3rem, 7vw, 7rem);
 }
 
-.about-heading,
-.tools-heading,
-.services-heading,
-.projects-heading,
-.contacts-heading {
+.section-heading {
   width: 100%;
   margin: 0 auto clamp(2.5em, 8vw, 6em);
   text-align: center;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: var(--font-serif);
 }
 
-.services-heading {
+.section-heading--tight {
   margin-bottom: 1em;
 }
 
-.about-heading h2,
-.tools-heading h2,
-.services-heading h2,
-.projects-heading h2,
-.contacts-heading h2 {
-  font-size: clamp(1.8em, 6vw, 3em);
-  color: var(--heading-muted);
-}
-
-.about-heading span,
-.tools-heading span,
-.services-heading span,
-.projects-heading span,
-.contacts-heading span {
+.section-number {
+  display: block;
+  margin-bottom: 0.6em;
   font-size: 1.5em;
   font-weight: bold;
   color: var(--blue);
+}
+
+.section-heading h2 {
+  font-size: clamp(1.8em, 6vw, 3em);
+  color: var(--heading-muted);
 }
 
 /* ---------- About ---------- */
@@ -230,7 +267,7 @@ h1 span {
   width: min(50em, 90%);
   margin: 0 auto;
   font-size: clamp(1.05em, 2vw, 1.2em);
-  line-height: 2.4em;
+  line-height: 2.2;
   text-align: center;
   color: #fff;
 }
@@ -240,21 +277,21 @@ h1 span {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: clamp(1.5em, 6vw, 10em);
+  gap: clamp(1.5em, 6vw, 6em);
   padding: 0 1.2em;
   text-align: center;
 }
 
-.adobe {
+.tool-card {
   width: 100%;
   max-width: 22em;
   padding: clamp(1.5em, 3vw, 2em);
-  background-color: rgba(229, 229, 236, 0.76);
+  background-color: rgba(229, 229, 236, 0.9);
   border-radius: 1em;
   transition: transform 0.2s ease-in-out;
 }
 
-.adobe:hover {
+.tool-card:hover {
   transform: translateY(-0.3em);
 }
 
@@ -273,7 +310,7 @@ h1 span {
 .services {
   padding: clamp(65px, 8vw, 100px) clamp(20px, 7%, 7%);
   color: var(--text);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
 }
 
 .services-container {
@@ -297,25 +334,14 @@ h1 span {
   color: var(--accent);
 }
 
-.label-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--accent);
-  border-radius: 50%;
-}
-
 .services-header h2 {
-  margin: 0 0 24px;
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  line-height: 1.12;
-  letter-spacing: -1px;
-  text-align: left;
-  color: var(--text);
+  margin: 0 0 24px;   
+  margin: 12px 0 24px; 
+  font-size: 4em;
 }
 
 .services-header h2 span {
-  font-size: inherit;
-  color: #777;
+  color: #8a8fa8;
 }
 
 .services-intro {
@@ -325,7 +351,7 @@ h1 span {
   color: var(--muted);
 }
 
-/* auto-fit: 3 cols on desktop, 2 on tablet, 1 on phone – no breakpoints needed */
+/* auto-fit: 3 cols desktop, 2 tablet, 1 phone, no breakpoints needed */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
@@ -339,7 +365,7 @@ h1 span {
   min-height: 300px;
   padding: clamp(24px, 3vw, 28px);
   background: var(--surface);
-  border: 1px solid #e9e2e2;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 16px;
   transition:
     transform 0.3s ease,
@@ -350,7 +376,7 @@ h1 span {
 .service-card:hover {
   transform: translateY(-7px);
   border-color: var(--accent);
-  background: #12121b;
+  background: var(--surface-hover);
 }
 
 .service-top {
@@ -367,8 +393,8 @@ h1 span {
   height: 48px;
   font-size: 20px;
   color: var(--accent);
-  background: #242719;
-  border: 1px solid #343a20;
+  background: #10114a; /* navy (was a leftover olive #242719) */
+  border: 1px solid #23266f;
   border-radius: 12px;
   transition:
     color 0.3s ease,
@@ -376,14 +402,14 @@ h1 span {
 }
 
 .service-card:hover .service-icon {
-  color: #111;
+  color: #fff; /* was #111 on blue: unreadable */
   background: var(--accent);
 }
 
 .service-number {
   font-size: 13px;
   font-weight: 600;
-  color: #666;
+  color: #9a9db8;
 }
 
 .service-card h3 {
@@ -410,8 +436,8 @@ h1 span {
 .service-tags span {
   padding: 7px 10px;
   font-size: 11px;
-  color: #c5c5c5;
-  border: 1px solid #353535;
+  color: #d0d0dc;
+  border: 1px solid #3b3f78;
   border-radius: 6px;
 }
 
@@ -424,7 +450,7 @@ h1 span {
   width: 34px;
   height: 34px;
   color: var(--text);
-  border: 1px solid #414141;
+  border: 1px solid #4a4f94;
   border-radius: 50%;
   transition:
     color 0.3s ease,
@@ -434,7 +460,7 @@ h1 span {
 
 .service-card:hover .service-link,
 .service-link:hover {
-  color: #111;
+  color: #fff;
   background: var(--accent);
   border-color: var(--accent);
   transform: rotate(45deg);
@@ -471,7 +497,7 @@ h1 span {
   color: var(--project-muted);
 }
 
-/* 3 cols desktop → 2 tablet → 1 phone, automatically */
+/* 3 cols desktop -> 2 tablet -> 1 phone. Extras live INSIDE this grid, so they join it properly. */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
@@ -491,6 +517,11 @@ h1 span {
   cursor: pointer;
 }
 
+/* Author CSS (display:block) beats the browser's built-in [hidden] rule, so restore it */
+.project-item[hidden] {
+  display: none;
+}
+
 .project-item img {
   display: block;
   width: 100%;
@@ -505,11 +536,6 @@ h1 span {
 .project-item:focus-visible img {
   transform: scale(1.06);
   opacity: 0.7;
-}
-
-.project-item:focus-visible {
-  outline: 2px solid #60a5fa;
-  outline-offset: 4px;
 }
 
 .project-overlay {
@@ -529,20 +555,52 @@ h1 span {
   opacity: 1;
 }
 
-/* ---------- Lightbox ---------- */
-.lightbox[aria-hidden="true"] {
+/* View More / View Less */
+.view-more {
+  display: block;
+  margin: 22px auto 0;
+  padding: 0.7em 1.8em;
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+  color: #fff;
+  background: transparent;
+  border: 2px solid var(--blue);
+  border-radius: 2em;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.view-more:hover {
+  background: var(--blue);
+}
+
+.view-more[hidden] {
   display: none;
 }
 
-.lightbox[aria-hidden="false"] {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
+/* ---------- Lightbox (native <dialog>) ---------- */
+.lightbox {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  padding: 65px clamp(8px, 3vw, 35px) 20px;
+  color: var(--project-text);
+  background: transparent;
+  border: none;
+  overflow: hidden;
+}
+
+.lightbox[open] {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: clamp(7px, 2vw, 22px);
-  padding: 65px clamp(8px, 3vw, 35px) 20px;
+}
+
+.lightbox::backdrop {
   background: rgb(3 5 10 / 94%);
   backdrop-filter: blur(10px);
 }
@@ -559,7 +617,11 @@ h1 span {
 .lightbox-content img {
   display: block;
   width: 100%;
-  height: clamp(58vh, 72vh, 720px);
+  height: min(72vh, 720px);
+  height: min(
+    72dvh,
+    720px
+  ); /* dvh: behaves on mobile browsers with a collapsing address bar */
   object-fit: contain;
   border-radius: 8px;
 }
@@ -575,7 +637,7 @@ h1 span {
 }
 
 #lightboxCounter {
-  color: #60a5fa;
+  color: #8dbbff;
   white-space: nowrap;
 }
 
@@ -600,10 +662,9 @@ h1 span {
   transform: scale(1.06);
 }
 
-.lightbox-close:focus-visible,
-.lightbox-nav:focus-visible {
-  outline: 2px solid #93c5fd;
-  outline-offset: 4px;
+.lightbox-nav:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
 }
 
 .lightbox-close {
@@ -628,7 +689,7 @@ h1 span {
   padding: 0 1.2em;
 }
 
-.contact-container h2 {
+.contact-title {
   margin-bottom: 20px;
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   line-height: 1.15;
@@ -636,8 +697,7 @@ h1 span {
   color: var(--text);
 }
 
-.contact-container h2 span {
-  font-size: inherit;
+.contact-title span {
   color: var(--blue-light);
 }
 
@@ -646,7 +706,7 @@ h1 span {
   margin-bottom: 40px;
   font-size: 15px;
   line-height: 1.8;
-  color: #94a3b8;
+  color: #a6b3c7;
 }
 
 .contact-links {
@@ -684,17 +744,14 @@ h1 span {
   width: 46px;
   height: 46px;
   font-size: 21px;
-  color: var(--blue-light);
-  background: #3e4d63;
+  color: #fff;
+  background: #2f3e5c;
   border-radius: 10px;
-  transition:
-    background 0.3s ease,
-    color 0.3s ease;
+  transition: background 0.3s ease;
 }
 
 .contact-link:hover .contact-icon {
-  color: #fff;
-  background: var(--blue-light);
+  background: var(--blue);
 }
 
 .contact-info {
@@ -713,14 +770,14 @@ h1 span {
 .contact-info small {
   font-size: 12px;
   line-height: 1.5;
-  color: #94a3b8;
+  color: #a6b3c7;
   overflow-wrap: anywhere;
 }
 
 .contact-arrow {
   flex-shrink: 0;
   font-size: 13px;
-  color: #64748b;
+  color: #8190a5;
   transition:
     color 0.3s ease,
     transform 0.3s ease;
@@ -733,9 +790,10 @@ h1 span {
 
 /* ---------- Footer ---------- */
 footer {
+  margin-top: clamp(3em, 8vw, 6em);
   padding: 3em 1em;
   text-align: center;
-  font-family: monospace;
+  font-family: var(--font-mono);
   font-weight: bold;
   background-color: #02021e;
   border-top: 1px solid rgb(37, 13, 171);
@@ -743,80 +801,39 @@ footer {
 
 footer p {
   font-size: 1em;
-  color: #0026ff;
+  color: var(--blue-light);
 }
 
 footer span {
   font-size: 0.8em;
-  color: blue;
+  color: #9db4ff;
 }
 
-/* ---------- Scroll reveal ---------- */
-.reveal {
+.js .reveal {
   opacity: 0;
   transition:
     opacity 0.8s ease,
     transform 0.8s ease;
 }
 
-.reveal.reveal-up {
+.js .reveal.reveal-up {
   transform: translateY(40px);
 }
-.reveal.reveal-down {
+
+.js .reveal.reveal-down {
   transform: translateY(-40px);
 }
 
-.reveal.active {
+.js .reveal.active {
   opacity: 1;
   transform: translateY(0);
 }
-
-.view-logo {
-  display: block;
-  cursor: pointer;
-}
-
-.hidden-logo {
-  display: none;
-}
-
-.reveal-logo {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1em;
-  margin-top: 1em;
-}
-
-.view-logo {
-  display: inline-block;
-  width: fit-content;
-  padding: 0.5em 0;
-  color: #fff;
-  background: transparent;
-  border: none;
-  font: inherit;
-  cursor: pointer;
-}
-
-.view-logo:hover {
-  color: var(--blue-light);
-}
-
-.view-logo:focus-visible {
-  outline: 2px solid var(--blue-light);
-  outline-offset: 4px;
-}
-
-/* ==========================================================
-   RESPONSIVE (only what clamp()/auto-fit can't handle)
-   ========================================================== */
 
 /* Laptops / tablets landscape */
 @media (max-width: 1200px) {
   .hero {
     flex-direction: column;
-    margin: 8em 2em 0;
+    margin: calc(var(--header-h) + 1.5em) 2em 0;
     gap: 2em;
   }
 
@@ -858,7 +875,7 @@ footer span {
     align-items: stretch;
     gap: 0;
     padding: 0.5em 0;
-    background: rgba(4, 4, 26, 0.97);
+    background: rgba(4, 4, 26, 0.98);
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
@@ -882,7 +899,7 @@ footer span {
 /* Phones */
 @media (max-width: 700px) {
   .hero {
-    margin: 6.5em 1.2em 0;
+    margin: calc(var(--header-h) + 1em) 1.2em 0;
     gap: 1.5em;
   }
 
@@ -897,7 +914,7 @@ footer span {
   #about .me {
     width: 100%;
     padding: 0 1.2em;
-    line-height: 1.9em;
+    line-height: 1.9;
   }
 }
 
@@ -912,7 +929,7 @@ footer span {
   }
 }
 
-/* ---------- Accessibility ---------- */
+/* --- Accessibility: reduced motion ----- */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -924,9 +941,16 @@ footer span {
     transition: none !important;
   }
 
+  .js .reveal,
+  .js .reveal.reveal-up,
+  .js .reveal.reveal-down {
+    opacity: 1;
+    transform: none;
+  }
+
   .service-card:hover,
   .contact-link:hover,
-  .adobe:hover {
+  .tool-card:hover {
     transform: none;
   }
 }
